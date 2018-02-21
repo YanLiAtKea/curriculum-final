@@ -32,14 +32,13 @@ body {}
 #frontpage {
     position: relative;
     height: 100vh;
+
 }
 svg{
-    width: 100%;
     position: absolute;
+    width: 100%;
     top:0;
-    right:0;
-    padding: 0;
-    margin: 0;
+    left:.0;
 }
 .cls-1, .cls-2{
     fill:none;
@@ -58,10 +57,10 @@ svg{
 }
 
 .frontImg{
-    padding: .4em;
-    padding-right: 2em;
     width: 100vw;
     position: relative;
+    padding: 0;
+    margin: 0;
 }
 
 .textBox {
