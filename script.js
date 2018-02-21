@@ -88,8 +88,10 @@ function generateForEachSemester(semesters) {
       plus.style.textAlign = "right";
       plus.style.marginRight = "30px";
       plus.classList.add('expand');
-      plus.innerHTML = "&caron;";
-      plus.style.fontSize = "37px";
+      plus.innerHTML = "<span class=\"arrow white\"></span>";
+      plus.style.fontSize = "26px";
+      plus.style.position = "relative";
+      plus.style.top = "-10px";
       let details = document.createElement('div');
       details.className = "hide details"; // need change later
       details.style.backgroundColor = "white";
@@ -112,12 +114,13 @@ function generateForEachSemester(semesters) {
       e.addEventListener("click", displayIndivdual);
 
       function displayIndivdual() {
+        e.nextElementSibling.style.display = "grid"; // display grid and display none by hide have conflict, so set this way
         if (index < 3) {
           e.nextElementSibling.classList.remove("hide");
-          e.nextElementSibling.style.display = "grid"; // display grid and display none by hide have conflict, so set this way
           e.nextElementSibling.style.gridTemplateColumns = "1fr 1fr";
         } else if (index >= 3) {
           e.nextElementSibling.classList.remove("hide");
+          e.nextElementSibling.style.gridTemplateColumns = "1fr";
         }
       }
       // close details for each
@@ -129,38 +132,31 @@ function generateForEachSemester(semesters) {
 
         function closeIndividual() {
           console.log('close'); // run 12 times.....
+          if (e.parentElement.parentElement.firstElementChild.textContent == "Electives") {
+
+          }
           e.parentElement.style.display = "none";
         }
       }
-
-      // flash expand icons in order
-      e.style.animation = "flash 2s " + (index * 1) + "s 1";
-    }
-    // close details for each semester /* need change later */
-    let close = document.querySelectorAll(".x");
-    close.forEach(hideDetails);
-
-    function hideDetails(x) {
-      x.addEventListener("click", hideIndividual);
-
-      function hideIndividual() {
-        x.parentElement.classList.add("hide");
-      }
     }
 
-    // set block width, need to run this after allEcts for whole semester(more than one blocks) is calculated
-    for (i = 0; i < ectsS.length; i++) {
-      thisSemester.style.gridTemplateColumns = "repeat(" + allEcts + ", 1fr)";
-      document.querySelectorAll('.block')[i].style.gridColumn = "span " + ectsS[i];
-      document.querySelectorAll('.details')[i].style.gridColumn = "span " + ectsS[i];
-    }
-    allEctsS.push(allEcts);
+    // flash expand icons in order
+    e.style.animation = "flash 2s " + (index * 1) + "s 1";
   }
-  /* in case some semester has more ECTS than others */
-  let longestBar = Math.max(...allEctsS); // the ... is because allEctsS is an array, can't use Math.max directly. can also use Math.max.apply(null, array)
-  for (i = 0; i < semesters.length; i++) {
-    document.querySelector('.semester:nth-of-type(' + (i + 1) + ') .blocks').style.width = allEctsS[i] / longestBar * 100 + "%";
+
+  // set block width, need to run this after allEcts for whole semester(more than one blocks) is calculated
+  for (i = 0; i < ectsS.length; i++) {
+    thisSemester.style.gridTemplateColumns = "repeat(" + allEcts + ", 1fr)";
+    document.querySelectorAll('.block')[i].style.gridColumn = "span " + ectsS[i];
+    document.querySelectorAll('.details')[i].style.gridColumn = "span " + ectsS[i];
   }
+  allEctsS.push(allEcts);
+}
+/* in case some semester has more ECTS than others */
+let longestBar = Math.max(...allEctsS); // the ... is because allEctsS is an array, can't use Math.max directly. can also use Math.max.apply(null, array)
+for (i = 0; i < semesters.length; i++) {
+  document.querySelector('.semester:nth-of-type(' + (i + 1) + ') .blocks').style.width = allEctsS[i] / longestBar * 100 + "%";
+}
 }
 
 // fix navi to top after scroll and show kea log + search
@@ -170,7 +166,7 @@ const coreAreas = document.querySelector('#coreAreas'); // cuz nav will be fixed
 const semesterPlan = document.querySelector('#programStructure');
 const exams = document.querySelector('#exams');
 const other = document.querySelector('#other');
-const keaLogo = document.querySelector('.kea-logo img');
+const keaLogo = document.querySelector('.kea-logo');
 const search = document.querySelector('.search');
 window.addEventListener('scroll', getAndCheckNavOffsetTop);
 
@@ -184,12 +180,14 @@ function getAndCheckNavOffsetTop() {
     semesterPlan.style.top = "70px"; // all the following div need to change accordingly as well. Strange.... don't need to change back when scroll back up
     exams.style.top = "70px";
     other.style.top = "70px";
+    nav.classList.add('show');
     keaLogo.classList.add('show');
     search.classList.add('show');
   } else {
     nav.style.position = "inherit";
     nav.style.top = "0px";
     coreAreas.style.top = "0";
+    nav.classList.remove('show');
     keaLogo.classList.remove('show');
     search.classList.remove('show');
   }
