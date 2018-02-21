@@ -194,3 +194,7 @@ function getAndCheckNavOffsetTop() {
     search.classList.remove('show');
   }
 }
+
+//search
+search.addEventListener('mouseenter', ()=>search.textContent = "doesn't work yet");
+search.addEventListener('mouseleave', ()=>search.textContent = "SEARCH ___________");

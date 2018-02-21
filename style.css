@@ -178,7 +178,6 @@ nav.show {
 .search.show {
   animation: showLogoSearch 1s ease forwards;
 }
-
 @keyframes showLogoSearch {
   to {
     opacity: 1;
@@ -576,7 +575,11 @@ footer a {
 footer h4 {
   font-size: 1.3em;
 }
-
+.contact {
+    padding: 50px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
 .bert {
   width: 110px;
   height: 110px;
@@ -599,7 +602,20 @@ a.bert-a {
 .center {
   text-align: center;
 }
-
+.contact div p {
+    padding-left: 0;
+}
+.contact div p.bold{
+    font-family: "title";
+    font-size: 1.1em;
+}
+.contact div * {
+    margin-left: 0;
+}
+.contact div a {
+    font-family: "text";
+    text-decoration: underline;
+}
 @media screen and (min-width: 700px) {
   .wrapper {
     margin: 0 10%;
