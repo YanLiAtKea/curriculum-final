@@ -136,28 +136,30 @@ function generateForEachSemester(semesters) {
 
           }
           e.parentElement.style.display = "none";
+          // flash expand icons in order
+          e.style.animation = "flash 2s " + (index * 1) + "s 1";
         }
       }
     }
 
-    // flash expand icons in order
-    e.style.animation = "flash 2s " + (index * 1) + "s 1";
-  }
 
-  // set block width, need to run this after allEcts for whole semester(more than one blocks) is calculated
-  for (i = 0; i < ectsS.length; i++) {
-    thisSemester.style.gridTemplateColumns = "repeat(" + allEcts + ", 1fr)";
-    document.querySelectorAll('.block')[i].style.gridColumn = "span " + ectsS[i];
-    document.querySelectorAll('.details')[i].style.gridColumn = "span " + ectsS[i];
+
+    // set block width, need to run this after allEcts for whole semester(more than one blocks) is calculated
+    for (i = 0; i < ectsS.length; i++) {
+      thisSemester.style.gridTemplateColumns = "repeat(" + allEcts + ", 1fr)";
+      document.querySelectorAll('.block')[i].style.gridColumn = "span " + ectsS[i];
+      document.querySelectorAll('.details')[i].style.gridColumn = "span " + ectsS[i];
+    }
+    allEctsS.push(allEcts);
+
+    /* in case some semester has more ECTS than others */
+    let longestBar = Math.max(...allEctsS); // the ... is because allEctsS is an array, can't use Math.max directly. can also use Math.max.apply(null, array)
+    for (i = 0; i < semesters.length; i++) {
+      document.querySelector('.semester:nth-of-type(' + (i + 1) + ') .blocks').style.width = allEctsS[i] / longestBar * 100 + "%";
+    }
   }
-  allEctsS.push(allEcts);
 }
-/* in case some semester has more ECTS than others */
-let longestBar = Math.max(...allEctsS); // the ... is because allEctsS is an array, can't use Math.max directly. can also use Math.max.apply(null, array)
-for (i = 0; i < semesters.length; i++) {
-  document.querySelector('.semester:nth-of-type(' + (i + 1) + ') .blocks').style.width = allEctsS[i] / longestBar * 100 + "%";
-}
-}
+
 
 // fix navi to top after scroll and show kea log + search
 const nav = document.querySelector('nav');
