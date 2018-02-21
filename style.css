@@ -39,6 +39,7 @@ svg{
     top:0;
     right:0;
     padding: 0;
+    margin: 0;
 }
 .cls-1, .cls-2{
     fill:none;
@@ -48,7 +49,7 @@ svg{
     stroke-dashoffset: 1;
 }
 .draw{
-    animation: dash 10s linear forwards;
+    animation: dash 5s linear forwards;
 }
 @keyframes dash{
     to{
@@ -57,11 +58,14 @@ svg{
 }
 
 .frontImg{
-    width: 100%;
+    padding: .4em;
+    padding-right: 2em;
+    width: 100vw;
     position: relative;
 }
 
 .textBox {
+    display: none;
   background-color: #4C374B;
   position: absolute;
   top: 40vh;
