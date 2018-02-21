@@ -27,8 +27,6 @@ fix:
   src: url("helvetica-neue-lt-std-roman.otf");
 }
 
-body {}
-
 #frontpage {
   position: relative;
   padding: 3em;
@@ -101,14 +99,26 @@ a:hover {
 }
 
 nav {
+    position: relative;
   height: 70px;
   margin-top: 45px;
   text-align: center;
   padding: 30px;
-  background-color: white;
+    background-color: white;
+    border-bottom: 1px solid #333;
   z-index: 11;
 }
-
+nav.show {
+    background-color: #efefef;
+    border-bottom: none;
+}
+.kea-logo {
+    position: absolute;
+    left: 1em;
+    font-size: 1.4em;
+    opacity: 0;
+}
+/*
 .kea-logo img {
   height: 3em;
   position: absolute;
@@ -116,8 +126,8 @@ nav {
   left: .5em;
   opacity: 0;
 }
-
-.kea-logo img.show {
+*/
+.kea-logo.show {
   animation: showLogoSearch 1s ease forwards;
 }
 
@@ -282,7 +292,30 @@ span {
   height: auto;
   padding: 20px 20px 0 20px;
 }
-
+.block h3 {
+    font-size: 1.3em;
+    margin-bottom: 20px;
+}
+.block span {
+    font-size: .9em;
+    color: white;
+}
+.block h5 {
+    font-family: "title";
+    font-size: 15pt;
+    font-weight: bold;
+}
+.block p:not(.desc-inside):not(.x) {
+    color: #fefefe;
+    font-weight: bold;
+    margin-left: 2em;
+}
+p.desc-inside {
+    margin-top: 1em;
+}
+p.desc-inside str {
+    font-family: "title";
+}
 .hide {
   display: none;
 }
@@ -305,6 +338,9 @@ span {
   font-weight: bold;
   margin-right: 43px;
     grid-column: 1/-1;
+    font-size: 20pt;
+    position: relative;
+    right: -28px;
 }
 
 .arrow {
@@ -433,7 +469,7 @@ section.core-area {
 }
 
 footer {
-  height: 30vh;
+    background-color: #eee;
   padding: 30px;
   position: relative;
   top: 70px;
@@ -443,10 +479,19 @@ footer {
 footer section {
   height: auto;
 }
-
+footer p {
+    font-size: .9em;
+    line-height: 1.7em;
+}
 footer img {
   width: 30px;
   cursor: pointer;
+}
+footer a {
+    margin-left: 0;
+}
+footer h4 {
+    font-size: 1.3em;
 }
 .bert {
     width: 110px;
