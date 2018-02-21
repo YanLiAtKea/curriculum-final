@@ -10,11 +10,33 @@ issues:
 !
 
 */
-let arrow = document.querySelectorAll('.arrow');
-let info = document.querySelectorAll('.info');
+// let arrow = document.querySelectorAll('.arrow');
+// let info = document.querySelectorAll('.info');
 
-// unfold and fold the detail info in other-info (and exams) ---> now the arrow doesn't work, only the section
-arrow.forEach(clickArrow);
+// // unfold and fold the detail info in other-info (and exams) ---> now the arrow doesn't work, only the section
+// arrow.forEach(clickArrow);
+
+// function clickArrow(a) {
+//   a.addEventListener('click', unfold);
+
+//   function unfold() {
+//     a.parentElement.parentElement.classList.toggle('unfold');
+//   }
+// }
+// info.forEach(clickInfo);
+
+// function clickInfo(e) {
+//   e.addEventListener('click', unfoldTwo);
+
+//   function unfoldTwo() {
+//     e.classList.toggle('unfold');
+//   }
+// }
+
+let unfoldMe = document.querySelectorAll('.unfoldMe');
+
+// arrow.forEach(clickArrow);
+unfoldMe.forEach(clickArrowunfoldMe);
 
 function clickArrow(a) {
   a.addEventListener('click', unfold);
@@ -23,15 +45,15 @@ function clickArrow(a) {
     a.parentElement.parentElement.classList.toggle('unfold');
   }
 }
-info.forEach(clickInfo);
 
-function clickInfo(e) {
-  e.addEventListener('click', unfoldTwo);
+function clickArrowunfoldMe(a) {
+  a.addEventListener('click', unfoldMeNow);
 
-  function unfoldTwo() {
-    e.classList.toggle('unfold');
+  function unfoldMeNow() {
+    a.parentElement.classList.toggle('unfold');
   }
 }
+
 
 // get info for each semester
 let ectsS = [];
@@ -66,14 +88,16 @@ function generateForEachSemester(semesters) {
       plus.style.textAlign = "right";
       plus.style.marginRight = "30px";
       plus.classList.add('expand');
-      plus.innerHTML = "&caron;";
-      plus.style.fontSize = "37px";
+      plus.innerHTML = "<span class=\"arrow white\"></span>";
+      plus.style.fontSize = "26px";
+      plus.style.position = "relative";
+      plus.style.top = "-10px";
       let details = document.createElement('div');
       details.className = "hide details"; // need change later
       details.style.backgroundColor = "white";
       details.innerHTML = block.details;
-        details.style.padding = "30px";
-        details.style.display = "hide grid";
+      details.style.padding = "30px";
+      details.style.display = "hide grid";
       generatedBlock.appendChild(h3);
       generatedBlock.appendChild(credit);
       generatedBlock.appendChild(content);
@@ -84,44 +108,41 @@ function generateForEachSemester(semesters) {
     // expand details for each semester
     let expandS = document.querySelectorAll(".expand");
     expandS.forEach(showDetail);
+
     function showDetail(e, index) {
       // click on each expand, opens the corresponding detail section
       e.addEventListener("click", displayIndivdual);
 
       function displayIndivdual() {
-          if(index<3){
-              e.nextElementSibling.classList.remove("hide");
-              e.nextElementSibling.style.display = "grid"; // display grid and display none by hide have conflict, so set this way
-              e.nextElementSibling.style.gridTemplateColumns = "1fr 1fr";
-          } else if(index>=3) {
-              e.nextElementSibling.classList.remove("hide");
-          }
+        e.nextElementSibling.style.display = "grid"; // display grid and display none by hide have conflict, so set this way
+        if (index < 3) {
+          e.nextElementSibling.classList.remove("hide");
+          e.nextElementSibling.style.gridTemplateColumns = "1fr 1fr";
+        } else if (index >= 3) {
+          e.nextElementSibling.classList.remove("hide");
+          e.nextElementSibling.style.gridTemplateColumns = "1fr";
+        }
       }
       // close details for each
-        let xS = document.querySelectorAll('.x');
-        xS.forEach(closeDetail);
-        function closeDetail(e){
-            e.addEventListener('click', closeIndividual);
-            function closeIndividual(){
-                console.log('close'); // run 12 times.....
-                e.parentElement.style.display = "none";
-            }
+      let xS = document.querySelectorAll('.x');
+      xS.forEach(closeDetail);
+
+      function closeDetail(e) {
+        e.addEventListener('click', closeIndividual);
+
+        function closeIndividual() {
+          console.log('close'); // run 12 times.....
+          if (e.parentElement.parentElement.firstElementChild.textContent == "Electives") {
+
+          }
+          e.parentElement.style.display = "none";
+          // flash expand icons in order
+          e.style.animation = "flash 2s " + (index * 1) + "s 1";
         }
-
-      // flash expand icons in order
-      e.style.animation = "flash 2s " + (index * 1) + "s 1";
-    }
-    // close details for each semester /* need change later */
-    let close = document.querySelectorAll(".x");
-    close.forEach(hideDetails);
-
-    function hideDetails(x) {
-      x.addEventListener("click", hideIndividual);
-
-      function hideIndividual() {
-        x.parentElement.classList.add("hide");
       }
     }
+
+
 
     // set block width, need to run this after allEcts for whole semester(more than one blocks) is calculated
     for (i = 0; i < ectsS.length; i++) {
@@ -130,13 +151,15 @@ function generateForEachSemester(semesters) {
       document.querySelectorAll('.details')[i].style.gridColumn = "span " + ectsS[i];
     }
     allEctsS.push(allEcts);
-  }
-  /* in case some semester has more ECTS than others */
-  let longestBar = Math.max(...allEctsS); // the ... is because allEctsS is an array, can't use Math.max directly. can also use Math.max.apply(null, array)
-  for (i = 0; i < semesters.length; i++) {
-    document.querySelector('.semester:nth-of-type(' + (i + 1) + ') .blocks').style.width = allEctsS[i] / longestBar * 100 + "%";
+
+    /* in case some semester has more ECTS than others */
+    let longestBar = Math.max(...allEctsS); // the ... is because allEctsS is an array, can't use Math.max directly. can also use Math.max.apply(null, array)
+    for (i = 0; i < semesters.length; i++) {
+      document.querySelector('.semester:nth-of-type(' + (i + 1) + ') .blocks').style.width = allEctsS[i] / longestBar * 100 + "%";
+    }
   }
 }
+
 
 // fix navi to top after scroll and show kea log + search
 const nav = document.querySelector('nav');
@@ -145,7 +168,7 @@ const coreAreas = document.querySelector('#coreAreas'); // cuz nav will be fixed
 const semesterPlan = document.querySelector('#programStructure');
 const exams = document.querySelector('#exams');
 const other = document.querySelector('#other');
-const keaLogo = document.querySelector('.kea-logo img');
+const keaLogo = document.querySelector('.kea-logo');
 const search = document.querySelector('.search');
 window.addEventListener('scroll', getAndCheckNavOffsetTop);
 
@@ -159,13 +182,19 @@ function getAndCheckNavOffsetTop() {
     semesterPlan.style.top = "70px"; // all the following div need to change accordingly as well. Strange.... don't need to change back when scroll back up
     exams.style.top = "70px";
     other.style.top = "70px";
+    nav.classList.add('show');
     keaLogo.classList.add('show');
     search.classList.add('show');
   } else {
     nav.style.position = "inherit";
     nav.style.top = "0px";
     coreAreas.style.top = "0";
+    nav.classList.remove('show');
     keaLogo.classList.remove('show');
     search.classList.remove('show');
   }
 }
+
+//search
+search.addEventListener('mouseenter', ()=>search.textContent = "doesn't work yet");
+search.addEventListener('mouseleave', ()=>search.textContent = "SEARCH ___________");
