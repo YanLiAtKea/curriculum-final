@@ -99,6 +99,7 @@ a:hover {
 }
 
 nav {
+    font-family: "title";
     position: relative;
   height: 70px;
   margin-top: 45px;
@@ -108,8 +109,11 @@ nav {
     border-bottom: 1px solid #333;
   z-index: 11;
 }
+li.nav a:hover {
+    color: var(--primary-color);
+}
 nav.show {
-    background-color: #efefef;
+    background-color: #f3f3f3;
     border-bottom: none;
 }
 .kea-logo {
