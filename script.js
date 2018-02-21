@@ -10,11 +10,33 @@ issues:
 !
 
 */
-let arrow = document.querySelectorAll('.arrow');
-let info = document.querySelectorAll('.info');
+// let arrow = document.querySelectorAll('.arrow');
+// let info = document.querySelectorAll('.info');
 
-// unfold and fold the detail info in other-info (and exams) ---> now the arrow doesn't work, only the section
-arrow.forEach(clickArrow);
+// // unfold and fold the detail info in other-info (and exams) ---> now the arrow doesn't work, only the section
+// arrow.forEach(clickArrow);
+
+// function clickArrow(a) {
+//   a.addEventListener('click', unfold);
+
+//   function unfold() {
+//     a.parentElement.parentElement.classList.toggle('unfold');
+//   }
+// }
+// info.forEach(clickInfo);
+
+// function clickInfo(e) {
+//   e.addEventListener('click', unfoldTwo);
+
+//   function unfoldTwo() {
+//     e.classList.toggle('unfold');
+//   }
+// }
+
+let unfoldMe = document.querySelectorAll('.unfoldMe');
+
+// arrow.forEach(clickArrow);
+unfoldMe.forEach(clickArrowunfoldMe);
 
 function clickArrow(a) {
   a.addEventListener('click', unfold);
@@ -23,15 +45,15 @@ function clickArrow(a) {
     a.parentElement.parentElement.classList.toggle('unfold');
   }
 }
-info.forEach(clickInfo);
 
-function clickInfo(e) {
-  e.addEventListener('click', unfoldTwo);
+function clickArrowunfoldMe(a) {
+  a.addEventListener('click', unfoldMeNow);
 
-  function unfoldTwo() {
-    e.classList.toggle('unfold');
+  function unfoldMeNow() {
+    a.parentElement.classList.toggle('unfold');
   }
 }
+
 
 // get info for each semester
 let ectsS = [];
@@ -72,8 +94,8 @@ function generateForEachSemester(semesters) {
       details.className = "hide details"; // need change later
       details.style.backgroundColor = "white";
       details.innerHTML = block.details;
-        details.style.padding = "30px";
-        details.style.display = "hide grid";
+      details.style.padding = "30px";
+      details.style.display = "hide grid";
       generatedBlock.appendChild(h3);
       generatedBlock.appendChild(credit);
       generatedBlock.appendChild(content);
@@ -84,29 +106,32 @@ function generateForEachSemester(semesters) {
     // expand details for each semester
     let expandS = document.querySelectorAll(".expand");
     expandS.forEach(showDetail);
+
     function showDetail(e, index) {
       // click on each expand, opens the corresponding detail section
       e.addEventListener("click", displayIndivdual);
 
       function displayIndivdual() {
-          if(index<3){
-              e.nextElementSibling.classList.remove("hide");
-              e.nextElementSibling.style.display = "grid"; // display grid and display none by hide have conflict, so set this way
-              e.nextElementSibling.style.gridTemplateColumns = "1fr 1fr";
-          } else if(index>=3) {
-              e.nextElementSibling.classList.remove("hide");
-          }
+        if (index < 3) {
+          e.nextElementSibling.classList.remove("hide");
+          e.nextElementSibling.style.display = "grid"; // display grid and display none by hide have conflict, so set this way
+          e.nextElementSibling.style.gridTemplateColumns = "1fr 1fr";
+        } else if (index >= 3) {
+          e.nextElementSibling.classList.remove("hide");
+        }
       }
       // close details for each
-        let xS = document.querySelectorAll('.x');
-        xS.forEach(closeDetail);
-        function closeDetail(e){
-            e.addEventListener('click', closeIndividual);
-            function closeIndividual(){
-                console.log('close'); // run 12 times.....
-                e.parentElement.style.display = "none";
-            }
+      let xS = document.querySelectorAll('.x');
+      xS.forEach(closeDetail);
+
+      function closeDetail(e) {
+        e.addEventListener('click', closeIndividual);
+
+        function closeIndividual() {
+          console.log('close'); // run 12 times.....
+          e.parentElement.style.display = "none";
         }
+      }
 
       // flash expand icons in order
       e.style.animation = "flash 2s " + (index * 1) + "s 1";
