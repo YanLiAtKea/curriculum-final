@@ -56,6 +56,7 @@ svg{
 }
 
 .frontImg{
+    opacity:.7;
     width: 100%;
     position: relative;
     padding: 0;
@@ -322,14 +323,54 @@ span {
   margin-right: 43px;
     grid-column: 1/-1;
 }
+.arrows,
+.arrows:before{
+  position: absolute;
+  left: 60%;
+}
 
-.big{
+.arrows{
+  width: 40px;
+  height: 40px;
+  top: 90%;
+  margin: -20px 0 0 -20px;
+  -webkit-transform: rotate(45deg);
+  border-left: none;
+  border-top: none;
+  border-right: 2px #fff solid;
+  border-bottom: 2px #fff solid;
+}
+
+    .arrows:before{
+  content: '';
+  width: 20px;
+  height: 20px;
+  top: 60%;
+  margin: -10px 0 0 -10px;
+  border-left: none;
+  border-top: none;
+  border-right: 1px #fff solid;
+  border-bottom: 1px #fff solid;
+  animation: arrow 2s infinite;
+}
+
+@keyframes arrow{
+    0%{
+    opacity: 1;
+}
+100%{
+    opacity: 0;
+    transform: translate(-10px, -10px)
+}
+}
+
+/*.big{
     position: absolute;
-  width: 3em;
-  height: 3em;
+  width: 4em;
+  height: 4em;
   margin-left: 1em;
   bottom:5vh;
-    right:25vw;
+    right:34vw;
 }
 
 .big:after {
@@ -337,15 +378,15 @@ span {
   display: inline-block;
   margin-left: 1em;
   margin-bottom: .2em;
-  width: 2em;
-  height: 2em;
+  width: 3em;
+  height: 3em;
   -moz-transform: rotate(135deg);
   -webkit-transform: rotate(135deg);
   transform: rotate(135deg);
   float: right;
     animation: arrow 2s  linear infinite;
-        border-top: .6em solid #fff;
-  border-right: .6em solid #fff;
+        border-top: .2em solid #fff;
+  border-right: .2em solid #fff;
 
 }
 
@@ -355,8 +396,9 @@ span {
 }
 100%{
     opacity: 0;
+    transform: translateY(+10vh, -10vh);
 }
-}
+}*/
 .arrow {
   display: inline-block;
   width: 1em;
