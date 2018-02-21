@@ -91,12 +91,13 @@ function generateForEachSemester(semesters) {
       e.addEventListener("click", displayIndivdual);
 
       function displayIndivdual() {
+          e.nextElementSibling.style.display = "grid"; // display grid and display none by hide have conflict, so set this way
           if(index<3){
               e.nextElementSibling.classList.remove("hide");
-              e.nextElementSibling.style.display = "grid"; // display grid and display none by hide have conflict, so set this way
               e.nextElementSibling.style.gridTemplateColumns = "1fr 1fr";
           } else if(index>=3) {
               e.nextElementSibling.classList.remove("hide");
+              e.nextElementSibling.style.gridTemplateColumns = "1fr";
           }
       }
       // close details for each
@@ -106,6 +107,9 @@ function generateForEachSemester(semesters) {
             e.addEventListener('click', closeIndividual);
             function closeIndividual(){
                 console.log('close'); // run 12 times.....
+                if(e.parentElement.parentElement.firstElementChild.textContent == "Electives"){
+
+                }
                 e.parentElement.style.display = "none";
             }
         }
