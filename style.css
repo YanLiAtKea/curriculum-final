@@ -47,25 +47,21 @@ fix:
 
 #frontpage {
     height: 100vh;
-
   position: relative;
-  padding: 3em;
-  height: 100vh;
-  background-image: url('img/shelf.jpg');
-  background-size: cover;
+    z-index: -1
 }
 
 #redlogo {
   position: absolute;
   top: 9vh;
   right: 7vw;
+    z-index: 3;
 }
 
 
-}
 svg{
     position: absolute;
-    width: 100%;
+    width: 100vw;
     top:0;
     left:0;
 }
@@ -87,7 +83,7 @@ svg{
 
 .frontImg{
     opacity:.7;
-    width: 100%;
+    width: 100vw;
     position: relative;
     padding: 0;
     margin: 0;
