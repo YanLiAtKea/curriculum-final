@@ -362,7 +362,6 @@ span {
 
 .block {
   background-color: #e88779/*rgb(255, 180, 170)*/;
-  cursor: pointer;
   height: auto;
   padding: 20px 20px 0 20px;
 }

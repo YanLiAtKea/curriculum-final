@@ -42,7 +42,6 @@ function clickArrowunfoldMe(a) {
   a.addEventListener('click', unfoldMeNow);
 
   function unfoldMeNow() {
-      console.log('clo');
     a.parentElement.classList.toggle('unfold');
   }
 }
@@ -107,6 +106,7 @@ function generateForEachSemester(semesters) {
       e.addEventListener("click", displayIndivdual);
 
       function displayIndivdual() {
+          e.style.display="none"; // hide expand button after clicking, temp solution
         e.nextElementSibling.style.display = "grid"; // display grid and display none by hide have conflict, so set this way
         if (index < 3) {
           e.nextElementSibling.classList.remove("hide");
@@ -125,6 +125,7 @@ function generateForEachSemester(semesters) {
 
         function closeIndividual() {
           console.log('close'); // run 12 times.....
+            e.parentElement.previousElementSibling.style.display = "inherit";
           if (e.parentElement.parentElement.firstElementChild.textContent == "Electives") {
 
           }
