@@ -143,6 +143,7 @@ a:hover {
 }
 
 nav {
+    display: none;
   font-family: "title";
   position: relative;
   height: 70px;
@@ -203,6 +204,7 @@ nav.show {
   }
 }
 #menuToggle {
+    z-index: 100;
   display: block;
   position: fixed;
   top: 20px;
@@ -945,9 +947,6 @@ a.bert-a {
 .arrows:before {
   top: 60%;
 }
-    #menuToggle{
-        display: none;
-    }
     .hidden{
         display: initial;
     }
@@ -973,6 +972,12 @@ a.bert-a {
 
 }
 @media screen and (min-width: 1000px){
+    #menuToggle{
+        display: none;
+    }
+    nav {
+        display: block;
+    }
     .semester>div:not(.details) {
       display: grid;
       grid-template-columns: 9em 1fr;
