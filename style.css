@@ -385,7 +385,7 @@ span {
 }*/
 
 #programStructure {
-  padding: 3em;
+  padding: 1em;
 }
 
 .wrapper {
@@ -399,7 +399,7 @@ span {
 
 .semester>div:not(.details) {
   display: grid;
-  grid-template-columns: 9em 1fr;
+  grid-template-columns: 1fr;
 }
 
 .blocks {
@@ -413,17 +413,23 @@ span {
   background-color: #e88779/*rgb(255, 180, 170)*/
   ;
   height: auto;
-  padding: 20px 20px 0 20px;
+  padding: 10px 10px 0 10px;
 }
 
 .block h3 {
   font-size: 20pt;
-  margin-bottom: 20px;
+  margin-bottom: 0px;
 }
 
 .block span {
+    text-align: center;
+    display: block;
   font-size: 13pt;
   color: white;
+    margin-bottom: 20px;
+}
+.block span.arrow {
+    margin-top: 40px;
 }
 
 .block h5 {
@@ -435,7 +441,7 @@ span {
 .block p:not(.desc-inside):not(.x) {
   color: #fefefe;
   font-weight: bold;
-  margin-left: 2em;
+  margin-left: 0;
 }
 
 p.desc-inside {
@@ -822,10 +828,17 @@ a.bert-a {
         grid-template-columns: repeat(2, 1fr);
         grid-gap: 20px;
     }
-
-    .core-decription div {
-
+    #programStructure {
+      padding: 3em;
     }
+    .block {
+      padding: 20px 20px 0 20px;
+    }
+    .block span {
+        display: inline;
+        margin-bottom: 20px;
+    }
+
   /*  #other {
     grid-template-columns: 1fr 1fr;
   }*/
@@ -836,5 +849,21 @@ a.bert-a {
         grid-template-columns: repeat(2, 1fr);
         grid-gap: 50px;
     }
+    .semester>div:not(.details) {
+      display: grid;
+      grid-template-columns: 9em 1fr;
+    }
+    .block span.arrow {
+        margin-top: 0;
+    }
+    .block p:not(.desc-inside):not(.x) {
+      margin-left: 2em;
+    }
+}
+@media screen and (min-width: 1440px){
+    body>div:not(#frontpage), footer {
+    width: 1440px;
+        margin: 0 auto;
+}
 
 }
