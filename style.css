@@ -437,7 +437,7 @@ span {
 
 .each-corearea {
     height: auto;
-  display: grid;
+/*  display: grid; */
   grid-template-columns: 1fr;
   grid-template-rows: 200px auto;
     justify-content: center;
@@ -923,9 +923,6 @@ a.bert-a {
   top: 90%;
 }
 
-.arrows:before {
-  top: 60%;
-}
     .hidden{
         display: initial;
     }
@@ -1041,7 +1038,6 @@ position: static;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 5px;
-  width: 50vw;
   z-index: 10;
     margin-left: 45%;
     margin-top: 10%;
