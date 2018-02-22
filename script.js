@@ -38,18 +38,11 @@ let unfoldMe = document.querySelectorAll('.unfoldMe');
 // arrow.forEach(clickArrow);
 unfoldMe.forEach(clickArrowunfoldMe);
 
-function clickArrow(a) {
-  a.addEventListener('click', unfold);
-
-  function unfold() {
-    a.parentElement.parentElement.classList.toggle('unfold');
-  }
-}
-
 function clickArrowunfoldMe(a) {
   a.addEventListener('click', unfoldMeNow);
 
   function unfoldMeNow() {
+      console.log('clo');
     a.parentElement.classList.toggle('unfold');
   }
 }

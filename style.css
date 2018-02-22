@@ -20,14 +20,14 @@
   background-color: #f2db87;
   color: black;
   margin: 0;
-  padding: 1em;
+  padding: 1.5em;
 }
 
 .expandOther {
   color: black;
   margin: 0;
-  padding: 1em;
-  background-color: #81b6c6;
+  padding: 1.5em;
+  background-color: #c5dbe2;
 }
 
 .unfoldMe {
@@ -368,12 +368,12 @@ span {
 }
 
 .block h3 {
-  font-size: 1.3em;
+  font-size: 20pt;
   margin-bottom: 20px;
 }
 
 .block span {
-  font-size: .9em;
+  font-size: 13pt;
   color: white;
 }
 
@@ -560,7 +560,7 @@ p.desc-inside str {
 
 .examgrid>section {
   background-color: #E6BA19;
-  height: 4em;
+  height: 3.5em;
   cursor: pointer;
 }
 
@@ -620,7 +620,7 @@ section {
 
 section.unfold {
   height: auto;
-  ;
+
 }
 
 sub {
@@ -700,6 +700,12 @@ a.bert-a {
 .contact div a {
     font-family: "text";
     text-decoration: underline;
+}
+.otherGrid .info{
+    height: 3.5em;
+}
+.otherGrid .info.unfold{
+    height: auto;
 }
 .otherGrid .info:last-of-type {
     grid-column: 1/-1;
