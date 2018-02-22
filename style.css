@@ -498,7 +498,9 @@ span {
   height: auto;
   padding: 10px 10px 0 10px;
 }
-
+.block li {
+    display: block;
+}
 .block h3 {
   font-size: 20pt;
   margin-bottom: 0px;
@@ -512,7 +514,7 @@ span {
     margin-bottom: 20px;
 }
 .block span.arrow {
-    margin-top: 40px;
+    margin-top: 17px;
 }
 
 .block h5 {
@@ -899,15 +901,15 @@ a.bert-a {
         grid-template-columns: repeat(2, 1fr);
         grid-gap: 20px;
     }
-    #programStructure {
-      padding: 3em;
-    }
     .block {
       padding: 20px 20px 0 20px;
     }
     .block span {
         display: inline;
         margin-bottom: 20px;
+    }
+    .block li {
+        display: inline;
     }
 
   /*  #other {
@@ -970,12 +972,19 @@ a.bert-a {
     }
 
 }
+@media screen and (min-width: 1000px){
+    .semester>div:not(.details) {
+      display: grid;
+      grid-template-columns: 9em 1fr;
+    }
+}
 @media screen and (min-width: 1280px){
     .core-description {
         padding: 0 10%;
         grid-template-columns: repeat(2, 1fr);
         grid-gap: 50px;
     }
+<<<<<<< HEAD
 
     svg {
     height: auto;
@@ -985,12 +994,15 @@ a.bert-a {
       display: grid;
       grid-template-columns: 9em 1fr;
     }
+=======
+>>>>>>> origin/master
     .block span.arrow {
         margin-top: 0;
     }
     .block p:not(.desc-inside):not(.x) {
       margin-left: 2em;
     }
+<<<<<<< HEAD
     #other{
   display: grid;
   grid-template-columns: repeat(7, 1fr);
@@ -1061,6 +1073,11 @@ margin: 0;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
 }
+=======
+    #programStructure {
+      padding: 3em;
+    }
+>>>>>>> origin/master
 }
 @media screen and (min-width: 1440px){
     body>div:not(#frontpage), footer {
