@@ -83,7 +83,7 @@ function generateForEachSemester(semesters) {
       credit.textContent = "ECTS: " + block.ects;
       credit.style.marginLeft = "30px";
       let content = document.createElement('p');
-      content.textContent = block.content;
+      content.innerHTML = block.content;
       let plus = document.createElement('p'); // need change later
       plus.style.textAlign = "right";
       plus.style.marginRight = "30px";
