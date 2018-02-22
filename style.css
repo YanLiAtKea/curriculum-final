@@ -604,7 +604,8 @@ a.bert-a {
   .wrapper {
     margin: 0 10%;
   }
-  /*  #other {
-    grid-template-columns: 1fr 1fr;
-  }*/
+  .contact_footer {
+    display: grid;
+    grid-template-columns: repeat(4, 2fr);
+  }
 }
