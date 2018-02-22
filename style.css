@@ -20,14 +20,14 @@
   background-color: #f2db87;
   color: black;
   margin: 0;
-  padding: 1em;
+  padding: 1.5em;
 }
 
 .expandOther {
   color: black;
   margin: 0;
-  padding: 1em;
-  background-color: #81b6c6;
+  padding: 1.5em;
+  background-color: #c5dbe2;
 }
 
 .unfoldMe {
@@ -406,18 +406,17 @@ span {
 .block {
   background-color: #e88779/*rgb(255, 180, 170)*/
   ;
-  cursor: pointer;
   height: auto;
   padding: 20px 20px 0 20px;
 }
 
 .block h3 {
-  font-size: 1.3em;
+  font-size: 20pt;
   margin-bottom: 20px;
 }
 
 .block span {
-  font-size: .9em;
+  font-size: 13pt;
   color: white;
 }
 
@@ -606,7 +605,7 @@ p.desc-inside str {
 
 .examgrid>section {
   background-color: #E6BA19;
-  height: 4em;
+  height: 3.5em;
   cursor: pointer;
 }
 
@@ -666,7 +665,6 @@ section {
 
 section.unfold {
   height: auto;
-  ;
 }
 
 sub {
@@ -754,8 +752,21 @@ a.bert-a {
   text-decoration: underline;
 }
 
+.otherGrid .info {
+  height: 3.5em;
+}
+
+.otherGrid .info.unfold {
+  height: auto;
+}
+
 .otherGrid .info:last-of-type {
   grid-column: 1/-1;
+  /*    background-color: #021d26;*/
+}
+
+.examgrid section.commencement {
+  background-color: rgb(253, 215, 87);
 }
 
 @media screen and (min-width: 700px) {
