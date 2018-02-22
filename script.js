@@ -164,7 +164,10 @@ const exams = document.querySelector('#exams');
 const other = document.querySelector('#other');
 const keaLogo = document.querySelector('.kea-logo');
 const search = document.querySelector('.search');
-window.addEventListener('scroll', getAndCheckNavOffsetTop);
+
+if(window.innerWidth>1000){  // if check this way, resizing window to wider than 1000px won't trigger the function, need to add eventListener of resizing to window
+    window.addEventListener('scroll', getAndCheckNavOffsetTop);
+}
 
 function getAndCheckNavOffsetTop() {
   let offset = coreAreas.getBoundingClientRect();
