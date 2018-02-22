@@ -56,11 +56,7 @@ body>div:not(#frontpage) {
 }
 
 svg {
-  position: absolute;
-  /*height: 100%;*/
-width: 100%;
-  top: 0;
-  left: 0;
+ display: none;
 }
 
 .cls-1,
@@ -82,13 +78,20 @@ width: 100%;
   }
 }
 
-.frontImg {
-    /*background-image: url(img/background_shelves-2-2.jpg);
+.frontImg{
+ filter: grayscale(50);
+width: 100vw;
+  position: relative;
+  padding: 0;
+  margin: 0;
+}
+.frontImgMobile{
+     background-image: url(img/background_shelves-2-2.jpg);
     background-size: cover;
-    background-repeat: no-repeat;*/
+    background-repeat: no-repeat;
  filter: grayscale(50);
 width: 100%;
-   /* height: 100%;*/
+    height: 100%;
   position: relative;
   padding: 0;
   margin: 0;
@@ -609,41 +612,7 @@ p.desc-inside str {
   }
 }
 
-/*.big{
-    position: absolute;
-  width: 4em;
-  height: 4em;
-  margin-left: 1em;
-  bottom:5vh;
-    right:34vw;
-}
 
-.big:after {
-  content: '';
-  display: inline-block;
-  margin-left: 1em;
-  margin-bottom: .2em;
-  width: 3em;
-  height: 3em;
-  -moz-transform: rotate(135deg);
-  -webkit-transform: rotate(135deg);
-  transform: rotate(135deg);
-  float: right;
-    animation: arrow 2s  linear infinite;
-        border-top: .2em solid #fff;
-  border-right: .2em solid #fff;
-
-}
-
-@keyframes arrow{
-0%{
-    opacity: 1;
-}
-100%{
-    opacity: 0;
-    transform: translateY(+10vh, -10vh);
-}
-}*/
 
 .arrow {
   display: inline-block;
@@ -983,6 +952,15 @@ a.bert-a {
       display: grid;
       grid-template-columns: 9em 1fr;
     }
+     svg {
+display: initial;
+position: absolute;
+top: 0;
+left: 0;
+    }
+    .frontImgMobile{
+        display: none;
+    }
 }
 @media screen and (min-width: 1280px){
     .core-description {
@@ -990,9 +968,7 @@ a.bert-a {
         grid-template-columns: repeat(2, 1fr);
         grid-gap: 50px;
     }
-    svg {
-    height: auto;
-    }
+
 
     .semester>div:not(.details) {
       display: grid;
