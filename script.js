@@ -102,17 +102,22 @@ function generateForEachSemester(semesters) {
       }
         function displayOnlyOneDetail(){
           e.style.display="none"; // hide expand button after clicking, temp solution
-          e.nextElementSibling.style.display = "grid"; // display grid and display none by hide have conflict, so set this way
+//          e.nextElementSibling.style.display = "grid"; // display grid and display none by hide have conflict, so set this way
           e.nextElementSibling.style.gridGap = "20px";
           e.nextElementSibling.classList.remove("hide");
           e.nextElementSibling.style.gridTemplateColumns = "1fr";
             e.nextElementSibling.style.width = "100vw";
-            e.nextElementSibling.style.height = "70vh";
+            e.nextElementSibling.style.height = "100vh";
             e.nextElementSibling.style.overflow = "scroll";
             e.nextElementSibling.style.position = "fixed";
-            e.nextElementSibling.style.top = "50px";
+            e.nextElementSibling.style.top = "0";
             e.nextElementSibling.style.zIndex = "17";
             e.nextElementSibling.style.position = "fixed";
+            if(window.innerWidth>700){
+                e.nextElementSibling.style.padding = "15%";
+                e.nextElementSibling.style.top = "50px";
+                e.nextElementSibling.style.height = "calc(100vh - 50px)";
+            }
         }
       // close details for each
       let xS = document.querySelectorAll('.x');
