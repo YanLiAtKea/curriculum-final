@@ -198,3 +198,12 @@ function getAndCheckNavOffsetTop() {
 //search
 search.addEventListener('mouseenter', ()=>search.textContent = "doesn't work yet");
 search.addEventListener('mouseleave', ()=>search.textContent = "SEARCH ___________");
+
+let blockS = document.querySelectorAll('.block');
+blockS.forEach(clickEachSemester);
+function clickEachSemester(b){
+    b.addEventListener('click', expandDetail);
+    function expandDetail(){
+        b.querySelector('div.details').style.height = "auto";
+    }
+}
