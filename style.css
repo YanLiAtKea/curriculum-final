@@ -56,10 +56,7 @@ body>div:not(#frontpage) {
 }
 
 svg {
-  position: absolute;
-  height: 100%;
-  top: 0;
-  left: 0;
+ display: none;
 }
 
 .cls-1,
@@ -81,8 +78,19 @@ svg {
   }
 }
 
-.frontImg {
+.frontImg{
     background-image: url(img/background_shelves-2-2.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+ filter: grayscale(50);
+width: 100%;
+    height: 100%;
+  position: relative;
+  padding: 0;
+  margin: 0;
+}
+.frontImgMobile{
+     background-image: url(img/background_shelves-2-2.jpg);
     background-size: cover;
     background-repeat: no-repeat;
  filter: grayscale(50);
@@ -985,7 +993,13 @@ a.bert-a {
         grid-gap: 50px;
     }
     svg {
-    height: auto;
+         position: absolute;
+  height: 100%;
+  top: 0;
+  left: 0;
+    }
+    .frontImgMobile{
+        display: none;
     }
 
     .semester>div:not(.details) {
