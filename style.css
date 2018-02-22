@@ -15,7 +15,9 @@
   font-family: "text";
   src: url("helvetica-neue-lt-std-roman.otf");
 }
-
+body {
+    display: grid;
+}
 .expandBlock {
   background-color: #f2db87;
   color: black;
@@ -347,21 +349,20 @@ span {
 
 #coreAreas {
   position: relative;
-  height: 100vh;
 }
 
-.collage {
+/*.collage {
   display: grid;
   grid-template-rows: 2fr 2fr;
   grid-template-columns: 2fr 2fr;
-  /* background-size: cover;
-  background-repeat: no-repeat; */
-  /* background-image: url(img/coreareas_collage.png); */
-}
+   background-size: cover;
+  background-repeat: no-repeat;
+   background-image: url(img/coreareas_collage.png);
+}*/
 
 .com {
   height: 50vh;
-  background-image: url('img/communication_collage.png');
+  background-image: url('img/new-commu.jpg');
   background-size: cover;
 }
 
@@ -396,10 +397,11 @@ span {
 }
 
 .icon {
-  position: absolute;
   width: 200px;
   height: 200px;
-  margin-top: 1em;
+    margin: 0 auto;
+  margin-top: 60px;
+    z-index: 1
 }
 
 .communication {
@@ -431,20 +433,23 @@ span {
 }
 
 .core-description {
-  position: absolute;
-  top: 30vh;
+    padding: 0 10%;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 20px;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 50px;
 }
 
 .each-corearea {
+    height: auto;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 200px auto;
+    justify-content: center;
 }
 
 .each-desc {
+    background-color: rgba(255,255,255,.7);
+    padding: 0 20px;
   grid-row-start: 2;
   margin-top: 3em;
   /* padding: 20px; */
@@ -854,13 +859,13 @@ a.bert-a {
   height: auto;
 }
 
-.otherGrid .info:last-of-type {
+.otherGrid .info:last-of-type, .examgrid section.commencement {
   grid-column: 1/-1;
   /*    background-color: #021d26;*/
 }
 
 .examgrid section.commencement {
-  background-color: rgb(253, 215, 87);
+
 }
 
 .otherdiv, .examdiv, .coursediv, .corediv{
