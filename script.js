@@ -10,28 +10,7 @@ issues:
 !
 
 */
-// let arrow = document.querySelectorAll('.arrow');
-// let info = document.querySelectorAll('.info');
 
-// // unfold and fold the detail info in other-info (and exams) ---> now the arrow doesn't work, only the section
-// arrow.forEach(clickArrow);
-
-// function clickArrow(a) {
-//   a.addEventListener('click', unfold);
-
-//   function unfold() {
-//     a.parentElement.parentElement.classList.toggle('unfold');
-//   }
-// }
-// info.forEach(clickInfo);
-
-// function clickInfo(e) {
-//   e.addEventListener('click', unfoldTwo);
-
-//   function unfoldTwo() {
-//     e.classList.toggle('unfold');
-//   }
-// }
 
 let unfoldMe = document.querySelectorAll('.unfoldMe');
 
@@ -102,12 +81,17 @@ function generateForEachSemester(semesters) {
     expandS.forEach(showDetail);
 
     function showDetail(e, index) {
-      // click on each expand, opens the corresponding detail section
-      e.addEventListener("click", displayIndivdual);
-
+        if(window.innerWidth>1280){
+          // click on each expand, opens the corresponding detail section. allow open multiple details
+          e.addEventListener("click", displayIndivdual);
+        } else {
+            // on narrower screen, use full width, so can't have columns, so for the 3rd and the 4th semesters, even the titles are in 2 columns, content need to use full width
+            e.addEventListener('click', displayOnlyOneDetail);
+        }
       function displayIndivdual() {
           e.style.display="none"; // hide expand button after clicking, temp solution
         e.nextElementSibling.style.display = "grid"; // display grid and display none by hide have conflict, so set this way
+          e.nextElementSibling.style.gridGap = "20px";
         if (index < 3) {
           e.nextElementSibling.classList.remove("hide");
           e.nextElementSibling.style.gridTemplateColumns = "1fr 1fr";
@@ -116,6 +100,25 @@ function generateForEachSemester(semesters) {
           e.nextElementSibling.style.gridTemplateColumns = "1fr";
         }
       }
+        function displayOnlyOneDetail(){
+          e.style.display="none"; // hide expand button after clicking, temp solution
+//          e.nextElementSibling.style.display = "grid"; // display grid and display none by hide have conflict, so set this way
+          e.nextElementSibling.style.gridGap = "20px";
+          e.nextElementSibling.classList.remove("hide");
+          e.nextElementSibling.style.gridTemplateColumns = "1fr";
+            e.nextElementSibling.style.width = "100vw";
+            e.nextElementSibling.style.height = "100vh";
+            e.nextElementSibling.style.overflow = "scroll";
+            e.nextElementSibling.style.position = "fixed";
+            e.nextElementSibling.style.top = "0";
+            e.nextElementSibling.style.zIndex = "17";
+            e.nextElementSibling.style.position = "fixed";
+            if(window.innerWidth>700){
+                e.nextElementSibling.style.padding = "15%";
+                e.nextElementSibling.style.top = "50px";
+                e.nextElementSibling.style.height = "calc(100vh - 50px)";
+            }
+        }
       // close details for each
       let xS = document.querySelectorAll('.x');
       xS.forEach(closeDetail);
@@ -132,6 +135,11 @@ function generateForEachSemester(semesters) {
           e.parentElement.style.display = "none";
           // flash expand icons in order
           e.style.animation = "flash 2s " + (index * 1) + "s 1";
+        }
+        function closeIndividualNarrow(){
+            e.parentElement.previousElementSibling.style.display = "inherit";
+            e.parentElement.style.display = "none";
+            e.parentElement.parentElement.style.height = "auto";
         }
       }
     }
@@ -165,8 +173,23 @@ const other = document.querySelector('#other');
 const keaLogo = document.querySelector('.kea-logo');
 const search = document.querySelector('.search');
 
-if(window.innerWidth>1000){  // if check this way, resizing window to wider than 1000px won't trigger the function, need to add eventListener of resizing to window
+
+
+
+if(window.innerWidth > 1000){  // if check this way, resizing window to wider than 1000px won't trigger the function, need to add eventListener of resizing to window
     window.addEventListener('scroll', getAndCheckNavOffsetTop);
+} else if(window.innerWidth < 1000){ // change burger menu color to it's visible on all backgound
+    let burgerLines = document.querySelectorAll('#menuToggle span');
+    window.addEventListener('scroll', changeBurger);
+    function changeBurger(){
+        let corePosition = coreAreas.getBoundingClientRect();
+        if (corePosition.top <= 0){
+            burgerLines.forEach(l=>{l.style.backgroundColor="black"});
+        } else {
+            burgerLines.forEach(l=>{l.style.backgroundColor="white"});
+        }
+
+    }
 }
 
 function getAndCheckNavOffsetTop() {
