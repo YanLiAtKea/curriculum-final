@@ -505,7 +505,9 @@ span {
   height: auto;
   padding: 10px 10px 0 10px;
 }
-
+.block li {
+    display: block;
+}
 .block h3 {
   font-size: 20pt;
   margin-bottom: 0px;
@@ -519,7 +521,7 @@ span {
     margin-bottom: 20px;
 }
 .block span.arrow {
-    margin-top: 40px;
+    margin-top: 17px;
 }
 
 .block h5 {
@@ -920,6 +922,9 @@ a.bert-a {
     .block span {
         display: inline;
         margin-bottom: 20px;
+    }
+    .block li {
+        display: inline;
     }
 
   /*  #other {
