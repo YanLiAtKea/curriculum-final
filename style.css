@@ -44,6 +44,7 @@ body {
 
 body>div:not(#frontpage) {
   margin-bottom: 50px;
+    width: 100vw;
 }
 
 #redlogo {
@@ -207,7 +208,7 @@ h1 {
   padding: 1%;
   text-align: center;
   /* grid-column: 1/-1; */
-  font-size: 5em;
+  font-size: 3em;
   font-family: "title", "arial", "sans-serif";
   margin-top: 1em;
 }
@@ -344,10 +345,10 @@ span {
 }
 
 .core-description {
-    padding: 0 10%;
+    padding: 10px;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 50px;
+  grid-template-columns: 1fr;
+  grid-gap: 10px;
 }
 
 .each-corearea {
@@ -371,7 +372,7 @@ span {
 } */
 
 .each-desc h1 {
-  font-size: 2em;
+  font-size: 1.5em;
   height: 85px;
 }
 
@@ -810,7 +811,30 @@ a.bert-a {
   .wrapper {
     margin: 0 10%;
   }
+    h1 {
+    font-size: 5em;
+    }
+    .each-desc h1 {
+      font-size: 2em;
+    }
+    .core-description {
+        padding: 0 5%;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 20px;
+    }
+
+    .core-decription div {
+
+    }
   /*  #other {
     grid-template-columns: 1fr 1fr;
   }*/
+}
+@media screen and (min-width: 1280px){
+    .core-description {
+        padding: 0 10%;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 50px;
+    }
+
 }
