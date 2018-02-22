@@ -1,14 +1,3 @@
-/*
-to do:
-+ responsive: especially nav
-
-fix:
-
-
-
-
-*/
-
 * {
   margin: 0;
   padding: 0;
@@ -49,6 +38,10 @@ fix:
   height: 100vh;
   position: relative;
   z-index: -1
+}
+
+body>div:not(#frontpage) {
+  margin-bottom: 50px;
 }
 
 #redlogo {
@@ -212,10 +205,9 @@ h1 {
   padding: 1%;
   text-align: center;
   /* grid-column: 1/-1; */
-  font-size: 2.5em;
+  font-size: 5em;
   font-family: "title", "arial", "sans-serif";
   margin-top: 1em;
-  margin-bottom: 1em;
 }
 
 #floatright {
@@ -231,6 +223,7 @@ h1 {
   grid-column: 1/3;
   grid-row: 2/3;
   font-size: 5em;
+  text-align: left;
 }
 
 h1:not(#first),
@@ -269,12 +262,42 @@ span {
 }
 
 .collage {
-  width: 100vw;
-  height: 50vh;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-image: url(img/coreareas_collage.png);
+  display: grid;
+  grid-template-rows: 2fr 2fr;
+  grid-template-columns: 2fr 2fr;
+  /* background-size: cover;
+  background-repeat: no-repeat; */
+  /* background-image: url(img/coreareas_collage.png); */
 }
+
+.com {
+  height: 50vh;
+  background-image: url('img/communication_collage.png');
+  background-size: cover;
+}
+
+.devel {
+  height: 50vh;
+  background-image: url('img/develope.png');
+  background-size: cover;
+}
+
+.busin {
+  height: 50vh;
+  background-image: url('img/busin.png');
+  background-size: cover;
+}
+
+.des {
+  height: 50vh;
+  background-image: url('img/design_vis.png');
+  background-size: cover;
+}
+
+/* 
+.top {
+  height: 150px;
+} */
 
 .opac {
   position: absolute;
@@ -287,6 +310,7 @@ span {
   position: absolute;
   width: 200px;
   height: 200px;
+  margin-top: 1em;
 }
 
 .communication {
@@ -313,6 +337,10 @@ span {
   background-size: cover;
 }
 
+.core_text {
+  padding: 1em;
+}
+
 .core-description {
   position: absolute;
   top: 30vh;
@@ -329,6 +357,7 @@ span {
 
 .each-desc {
   grid-row-start: 2;
+  margin-top: 3em;
   /* padding: 20px; */
 }
 
@@ -377,6 +406,7 @@ span {
 .block {
   background-color: #e88779/*rgb(255, 180, 170)*/
   ;
+  cursor: pointer;
   height: auto;
   padding: 20px 20px 0 20px;
 }
@@ -722,6 +752,10 @@ a.bert-a {
 .contact div a {
   font-family: "text";
   text-decoration: underline;
+}
+
+.otherGrid .info:last-of-type {
+  grid-column: 1/-1;
 }
 
 @media screen and (min-width: 700px) {

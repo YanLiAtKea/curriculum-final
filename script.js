@@ -83,7 +83,7 @@ function generateForEachSemester(semesters) {
       credit.textContent = "ECTS: " + block.ects;
       credit.style.marginLeft = "30px";
       let content = document.createElement('p');
-      content.textContent = block.content;
+      content.innerHTML = block.content;
       let plus = document.createElement('p'); // need change later
       plus.style.textAlign = "right";
       plus.style.marginRight = "30px";
@@ -198,3 +198,12 @@ function getAndCheckNavOffsetTop() {
 //search
 search.addEventListener('mouseenter', ()=>search.textContent = "doesn't work yet");
 search.addEventListener('mouseleave', ()=>search.textContent = "SEARCH ___________");
+
+let blockS = document.querySelectorAll('.block');
+blockS.forEach(clickEachSemester);
+function clickEachSemester(b){
+    b.addEventListener('click', expandDetail);
+    function expandDetail(){
+        b.querySelector('div.details').style.height = "auto";
+    }
+}
