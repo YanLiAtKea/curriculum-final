@@ -714,6 +714,34 @@ a.bert-a {
 .examgrid section.commencement {
     background-color: rgb(253, 215, 87);
 }
+
+.otherdiv, .examdiv, .coursediv, .corediv{
+    position: absolute;
+    width: 9em;
+    height: 9em;
+    cursor: pointer;
+    z-index: 20;
+    margin: 0;
+}
+.otherdiv{
+    bottom:48vh;
+    right:12vw;
+}
+.examdiv{
+    top:4vh;
+    left:68vw;
+}
+.coursediv{
+    top:20vh;
+    left:43vw;
+}
+.corediv{
+    bottom: 15vh;
+    right:23vw;
+}
+
+
+
 @media screen and (min-width: 700px) {
   .wrapper {
     margin: 0 10%;
