@@ -590,6 +590,10 @@ p.desc-inside str {
   z-index: 1;
 }
 
+.library img {
+  filter: grayscale(50);
+}
+
 .examgrid {
   grid-column: 4/-1;
   grid-row: 4/-3;
@@ -633,6 +637,7 @@ p.desc-inside str {
 
 .campus img {
   width: 100%;
+  filter: grayscale(50);
 }
 
 .otherGrid {
