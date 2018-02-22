@@ -80,11 +80,7 @@ svg {
 }
 
 .frontImg{
- filter: grayscale(50);
-width: 100vw;
-  position: relative;
-  padding: 0;
-  margin: 0;
+ display: none;
 }
 .frontImgMobile{
      background-image: url(img/background_shelves-2-2.jpg);
@@ -965,6 +961,14 @@ position: absolute;
 top: 0;
 left: 0;
     }
+    .frontImg{
+        display: initial;
+ filter: grayscale(50);
+width: 100vw;
+  position: relative;
+  padding: 0;
+  margin: 0;
+}
     .frontImgMobile{
         display: none;
     }
