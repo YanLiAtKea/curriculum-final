@@ -53,7 +53,7 @@ body>div:not(#frontpage) {
 
 svg {
   position: absolute;
-  width: 100vw;
+  height: 100%;
   top: 0;
   left: 0;
 }
@@ -78,8 +78,12 @@ svg {
 }
 
 .frontImg {
+    background-image: url(img/background_shelves-2-2.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
  filter: grayscale(50);
-  width: 100vw;
+  width: 100%;
+  height: 100%;
   position: relative;
   padding: 0;
   margin: 0;
@@ -88,10 +92,11 @@ svg {
 .textBox {
   background-color: #4C374B;
   position: absolute;
-  top: 59vh;
-  left: 8vw;
+  top: 60vh;
+  left: 0vw;
   text-align: center;
   padding: 1em;
+    margin: .5em;
   color: white;
   font-family: "title";
 }
@@ -108,16 +113,9 @@ svg {
 }
 
 .textBox>h1 {
-  font-size: 2.5em;
-}
-
-.textBox>h2 {
   font-size: 2em;
 }
 
-.textBox>h3 {
-  font-size: 1.8em;
-}
 
 img.logo {
   position: absolute;
@@ -471,7 +469,7 @@ p.desc-inside str {
 .arrows,
 .arrows:before {
   position: absolute;
-  left: 60%;
+  left: 860%;
 }
 
 .arrows {
@@ -808,4 +806,39 @@ a.bert-a {
   /*  #other {
     grid-template-columns: 1fr 1fr;
   }*/
+svg {
+  width: 100%;
+    height: auto;
+}
+    .textBox {
+  top: 59vh;
+  left: 8vw;
+  text-align: center;
+  padding: 1em;
+}
+    .textBox>h1 {
+  font-size: 2.5em;
+}
+    .textBox>h2 {
+  font-size: 2em;
+}
+
+.textBox>h3 {
+  font-size: 1.8em;
+}
+    .arrows,
+.arrows:before {
+  left: 60%;
+}
+
+.arrows {
+  top: 90%;
+}
+
+.arrows:before {
+
+  top: 60%;
+
+}
+
 }
