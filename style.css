@@ -994,15 +994,12 @@ a.bert-a {
       display: grid;
       grid-template-columns: 9em 1fr;
     }
-=======
->>>>>>> origin/master
     .block span.arrow {
         margin-top: 0;
     }
     .block p:not(.desc-inside):not(.x) {
       margin-left: 2em;
     }
-<<<<<<< HEAD
     #other{
   display: grid;
   grid-template-columns: repeat(7, 1fr);
@@ -1073,11 +1070,9 @@ margin: 0;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
 }
-=======
     #programStructure {
       padding: 3em;
     }
->>>>>>> origin/master
 }
 @media screen and (min-width: 1440px){
     body>div:not(#frontpage), footer {
