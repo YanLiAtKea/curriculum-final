@@ -173,7 +173,7 @@ const search = document.querySelector('.search');
 
 if(window.innerWidth > 1000){  // if check this way, resizing window to wider than 1000px won't trigger the function, need to add eventListener of resizing to window
     window.addEventListener('scroll', getAndCheckNavOffsetTop);
-} else if(window.innerWidth < 700){ // change burger menu color to it's visible on all backgound
+} else if(window.innerWidth < 1000){ // change burger menu color to it's visible on all backgound
     let burgerLines = document.querySelectorAll('#menuToggle span');
     window.addEventListener('scroll', changeBurger);
     function changeBurger(){
