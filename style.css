@@ -859,11 +859,14 @@ a.bert-a {
 }
 
 .bg-for-h1 {
-    width: 50vw;
     background-color: rgba(255,255,255,.8);
 }
 
 @media screen and (min-width: 700px) {
+    .bg-for-h1 {
+        width: 62vw;
+    }
+
   .wrapper {
     margin: 0 10%;
   }
