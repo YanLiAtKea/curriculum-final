@@ -436,10 +436,6 @@ span {
 
 .each-corearea {
     height: auto;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 200px auto;
-    justify-content: center;
 }
 
 .each-desc {
