@@ -703,9 +703,12 @@ a.bert-a {
 }
 .otherGrid .info:last-of-type {
     grid-column: 1/-1;
+/*    background-color: #021d26;*/
 }
 
-
+.examgrid section.commencement {
+    background-color: rgb(253, 215, 87);
+}
 @media screen and (min-width: 700px) {
   .wrapper {
     margin: 0 10%;
