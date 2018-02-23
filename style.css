@@ -470,7 +470,7 @@ span {
 
 #programStructure {
     width: 100%;
-  padding: 3em;
+  padding: 0.3em;
 
 }
 
@@ -506,7 +506,7 @@ span {
     display: block;
 }
 .block h3 {
-  font-size: 20pt;
+  font-size: 17pt;
   margin-bottom: 0px;
 }
 
@@ -867,7 +867,9 @@ a.bert-a {
     .bg-for-h1 {
         width: 62vw;
     }
-
+    .block h3 {
+      font-size: 20pt;
+    }
   .wrapper {
     margin: 0 10%;
   }
